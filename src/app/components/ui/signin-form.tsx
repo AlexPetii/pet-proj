@@ -5,11 +5,12 @@ import { Label } from "./label";
 import { Input } from "./input";
 import { cn } from "@/utils/cn";
 
-export function LoginForm() {
+export function SignInForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
   };
+
   return (
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 dark:bg-black md:rounded-2xl md:p-8">
       <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
@@ -35,10 +36,13 @@ export function LoginForm() {
         </button>
 
         <p className="mb-3 mt-5 block text-xs font-medium text-gray-900">
-          If you have account go to <a href="/signup">Signup form</a>
+          No account?{" "}
+          <a className="text-cyan-500" href="/signup">
+            Sign Up
+          </a>
         </p>
         <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />
-        <div className="flex flex-col space-y-4"></div>
+        {/* <div className="flex flex-col space-y-4"></div> */}
       </form>
     </div>
   );
