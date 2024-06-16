@@ -19,9 +19,9 @@ export default function RootLayout({
     >
       <html lang="en">
         <body className={inter.className}>
-          <div className="mx-36 text-2xl">
+          <div className="mx-8 text-2xl">
             <Navbar />
-            <div className="flex flex-col items-center text-center mt-32">
+            <div className="flex flex-col items-center text-center mt-8">
               {children}
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
-  // allow access to the page / and /test /signin
+  // allow access to the page /
   publicRoutes: ["/",],
 });
 
