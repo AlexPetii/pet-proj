@@ -1,9 +1,11 @@
 import Image from "next/image";
+import { Images } from "./components/images";
 
 export default function Home() {
   return (
     <div className="flex flex-wrap justify-center">
       <div className="box-border h-64 w-64 p-4 border-2 mr-1 mb-1">
+        <Images />
         <Image src="/girl1.jpg" alt="photo" width={256} height={256} />
         {/* <div>txt</div> */}
       </div>

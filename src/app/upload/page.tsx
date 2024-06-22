@@ -1,15 +1,27 @@
 import { put } from "@vercel/blob";
 import { revalidatePath } from "next/cache";
+import { Pool } from "@vercel/postgres";
+
+const pool = new Pool({
+  connectionString: process.env.POSTGRES_URL,
+});
 
 export default function Form() {
   async function uploadImage(formData: FormData) {
     "use server";
     const imageFile = formData.get("image") as File;
+    const client = await pool.connect();
+    try {
+      const query = "INSERT INTO images (filename, data) VALUES ($1, $2)";
+      await client.query(query);
+    } catch {
+      client.release();
+    }
     const blob = await put(imageFile.name, imageFile, {
       access: "public",
     });
     revalidatePath("/");
-    return blob;
+    return Response.json({ blob });
   }
 
   return (
