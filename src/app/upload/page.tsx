@@ -16,7 +16,7 @@ export default function Form() {
       console.log(e);
     }
     revalidatePath("/");
-    return Response.json({ url });
+    return new Response(JSON.stringify({ url }), { status: 200 });
   }
 
   return (
@@ -33,6 +33,7 @@ export default function Form() {
           />
         </svg>
         Upload file
+        <input type="file" name="image" id="uploadFile1" className="hidden" />
         <p className="text-xs font-medium text-gray-400 mt-2">
           PNG, JPG, and SVG are Allowed.
         </p>

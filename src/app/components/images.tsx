@@ -10,17 +10,19 @@ export async function Images() {
 
   return (
     <section>
-      {images.blobs.map((image) => (
-        <Image
-          className="box-border h-64 w-64 p-4 border-2 mr-1 mb-1"
-          unoptimized
-          key={image.pathname}
-          src={image.url}
-          alt="Image"
-          width={256}
-          height={256}
-        />
-      ))}
+      <div className="flex flex-wrap justify-center">
+        {images.blobs.map((image) => (
+          <Image
+            className="box-border h-64 w-64 p-4 border-2 mr-1 mb-1"
+            unoptimized
+            key={image.pathname}
+            src={image.url}
+            alt="Image"
+            width={256}
+            height={256}
+          />
+        ))}
+      </div>
     </section>
   );
 }
