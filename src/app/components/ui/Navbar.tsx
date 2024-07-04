@@ -27,6 +27,9 @@ const Navbar = async () => {
             </>
           ) : (
             <>
+              <Link href="/upload">
+                <li>Upload</li>
+              </Link>
               <Link href="/profile">
                 <li>Profile</li>
               </Link>
