@@ -14,6 +14,7 @@ export async function Images() {
         {images.blobs.map((image) => (
           <Image
             className="box-border h-64 w-64 p-4 border-2 mr-1 mb-1"
+            priority
             unoptimized
             key={image.pathname}
             src={image.url}
