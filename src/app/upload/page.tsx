@@ -1,6 +1,7 @@
 import { put } from "@vercel/blob";
 import { revalidatePath } from "next/cache";
 import { sql } from "@vercel/postgres";
+import { redirect } from "next/navigation";
 
 export default function Form() {
   async function uploadImage(formData: FormData) {
@@ -16,7 +17,8 @@ export default function Form() {
       console.log(e);
     }
     revalidatePath("/");
-    return new Response(JSON.stringify({ url }), { status: 200 });
+    redirect("/");
+    return JSON.stringify({ url });
   }
 
   return (
